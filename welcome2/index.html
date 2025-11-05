@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Page</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Noto Nastaliq Urdu', serif;
+    background-color: #001a33;
+    color: white;
+    overflow-x: hidden;
+  }
+
+  .welcome-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle at center, #00264d, #000814);
+    border: 8px solid;
+    border-image: linear-gradient(45deg, gold, silver) 1;
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    0% { box-shadow: 0 0 20px gold; }
+    100% { box-shadow: 0 0 40px silver; }
+  }
+
+  .welcome-text {
+    font-size: 60px;
+    color: gold;
+    text-shadow: 0 0 20px silver;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .main-content {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: linear-gradient(to bottom, #001a33, #000);
+  }
+
+  .main-content h2 {
+    color: gold;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .photo-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .photo-gallery img {
+    width: 60%;
+    max-width: 400px;
+    border: 5px solid;
+    border-image: linear-gradient(45deg, silver, gold) 1;
+    border-radius: 20px;
+    transition: transform 0.5s;
+  }
+
+  .photo-gallery img:hover {
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+
+<div class="welcome-window" id="welcome">
+  <div class="welcome-text">خوش آمدید</div>
+</div>
+
+<div class="main-content" id="main">
+  <h2>Bio Data</h2>
+  <div class="photo-gallery">
+    <img src="photo1.jpg" alt="Photo 1">
+    <h2>Photo</h2>
+    <img src="photo2.jpg" alt="Photo 2">
+  </div>
+</div>
+
+<script>
+  setTimeout(() => {
+    document.getElementById('welcome').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 3000);
+</script>
+
+</body>
+</html>
